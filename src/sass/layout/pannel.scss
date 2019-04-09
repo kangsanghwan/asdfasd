@@ -1,0 +1,509 @@
+@charset "utf-8";
+
+button{
+	outline:none;
+}
+
+body{
+	letter-spacing: -0.05em;
+}
+@mixin clear(){
+	content:"";
+	display:block;
+	overflow:hidden;
+	clear:both;
+}
+@mixin icon_el($left, $top, $width, $height, $url , $types : true){
+	display:inline-block;
+	@if $types == "true" {
+		position:absolute;
+		left:$left;
+		top:$top;
+	}
+	width:$width;
+	height:$height;
+	background-repeat:no-repeat;
+	background-position:0 0;
+	background-image:url(../../images/#{$url});
+	font-size:0;
+	text-indent:-9999em;
+}
+
+
+#search_panel{
+	&.panel{
+		.panel_cont {
+			display:block;
+		}
+		.search_wrapper{
+			padding-bottom:30px;
+		}
+	}
+	
+	position:fixed;
+	top:15px;
+	left:85px;
+	z-index:11;
+	width:352px;
+	background-color:#fff;
+	border:1px solid rgba(0,0,0,0.35);
+
+	.search_wrapper{
+		position:relative;
+	}
+	.panel_cont{
+		display:none;
+		width:100%;
+		height:100%;
+	}
+}
+.panel_control{
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	height:20px;
+	text-align:right;
+	width:100%;
+	padding: 0 20px;
+	button{
+		@include icon_el(0,0,56px,20px,"btn_panel_control.png","false");
+		&.btn__panel--close{
+			background-position:0 -20px;
+		}
+	}
+}
+
+.search_header{
+	padding:20px 20px 0;
+	height:65px;
+	.logo{
+		float:left;
+	}
+	.user_util{
+		float:right;
+		.btn__login{
+			display:inline-block;
+			border:1px solid #c9c9c9;
+			border-radius:15px;
+			color:#666;
+			text-align:center;
+			font-size:13px;
+			width:70px;
+			height:26px;
+			line-height:24px;
+		}
+		.btn__logout{
+			display:inline-block;
+			position:relative;
+			padding:0 15px 0 28px;
+			border:1px solid #c9c9c9;
+			border-radius:15px;
+			color:#666;
+			text-align:center;
+			font-size:13px;
+			height:26px;
+			line-height:24px;
+			i{
+				@include icon_el(3px,2px,20px,20px,"icon_user_logout.png" , "true");
+			}
+		}
+	}
+	&:after{
+		@include clear();
+	}
+}
+.position_info{
+		padding: 15px 20px 20px 20px ;
+		background: #fafafa;
+		border-top:1px solid #eaeaea;
+		p{
+			padding-left: 17px;
+			font-size: 12px;
+			background: url(../../images/position_marker.png) no-repeat;
+		}
+	}
+.search_cate{
+	
+	ul{
+		width: 350px;
+		margin: 0 auto;
+		text-align: center;
+		box-sizing:border-box;
+		overflow: hidden;
+		border-top:1px solid #eaeaea;
+		border-bottom:1px solid #eaeaea;
+		&:after{
+			@include clear();
+		}
+		li{
+			float:left;
+			width:70px;
+			&.active{
+				[role="tab"]{
+					background:#0277bd !important;
+					color:#fff;	
+				}
+			}
+			[role="tab"]{
+				&:focus{
+					background:#0277bd !important;
+					color:#fff;
+				}
+				display:block;
+				position:relative;
+				text-align:center;
+				color:#bbb;
+				font-size:14px;
+				width:100%;
+				height:49px;
+				line-height:49px;
+				background:url(../../images/blit_search_tab.gif) no-repeat 100% 50%;
+				&.end{
+					background:none;
+				}
+			}
+			&:after{
+				@include clear();
+			}
+		}
+	}
+}
+
+.tf_text{
+	border:1px solid #ddd;
+	display:inline-block;
+	height:35px;
+	padding:0 9px 0 9px;
+	font-size:13px;
+	&.h29{
+		height:29px;
+	}
+	&.block{
+		display:block;
+		width:100%;
+	}
+}
+
+.select{
+	border:1px solid #ddd;
+	display:inline-block;
+	height:35px;
+	padding:0 9px 0 9px;
+	font-size:13px;
+}
+
+.search_wrap{
+	position:relative;
+	overflow-y:scroll;
+	padding:20px 20px 0;
+	height:calc(100vh - 240px);
+	[role="tabpanel"]{
+		display:none;
+		&.active{
+			display:block;
+		}
+	}
+	.search_title{
+		margin:0 0 15px;
+		position:relative;
+		h3{
+			font-family:'HDharmonyM';
+			font-weight:400;
+			font-size:16px;
+			em{
+				color:#666;
+				font-style:normal;
+				font-family:'HDharmonyM';
+				font-weight:400;
+			}
+		}
+	}
+	#btn__search--reset{
+		position:absolute;
+		right:0;
+		top:0;
+		background:url(../../images/btn_reset.gif) no-repeat 0 0;
+		width:15px;
+		height:15px;
+		display:block;
+		cursor:pointer;
+	}
+	.search_form{
+		.search_window{
+			display:block;
+			float:left;
+			overflow:hidden;
+			position:relative;
+			margin-left:5px;
+			width: calc(100% - 85px);
+			.tf_text{
+				float:left;
+				width:100%;
+			}
+			#btn_fsubmit{
+				float:left;
+				background-color:#2a3a4a;
+				color:#fff;
+				width:43px;
+				height:35px;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+		}
+		&:after{
+			@include clear();
+		}
+		[data-select="form-select"]{
+			float:left;
+			width: 80px;
+		}
+		.select{
+			width:80px;
+		}
+	}
+
+	.condition_search{
+		margin:20px 0;
+		.search_title{
+			.condition__btn--control{
+				position:absolute;
+				right:0;
+				top:4px;
+				width:15px;
+				height:15px;
+				background:url(../../images/btn_condition.gif) no-repeat 0 0;
+				font-size:0;
+				text-indent:-9999em;
+				display:block;
+				&.active{
+					background-position:0 -15px;
+				}
+			}
+		}
+	}
+	.condition_cont{
+		display:none;	
+	}
+	.f_box{
+		overflow:hidden;
+	}
+	ul.input_wrap{
+			padding-bottom:15px;
+			li{
+				&+li{
+					margin-top:6px;
+				}
+				dl{
+					&:after{
+						@include clear();
+					}
+					dd,
+					dt{float:left;}
+					dt{
+						background:url(../../images/blit_condition_list.gif) no-repeat 0 50%;
+						padding-left:12px;
+						width:85px;
+						color:#666;
+						font-size:13px;
+						height:29px;
+						line-height:29px;
+					}
+					dd{
+						width: calc(100% - 85px);
+						input[type="text"]{
+							height:29px;
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+
+		.condition_tag{
+			text-align:center;
+			padding:15px 0;
+			border-top:1px solid #eaeaea;
+			.btn__group--tag{
+				display:inline-block;
+				button{
+					background-color:#cacaca;
+					color:#fff;
+					&.active{
+						background-color:#2f5691;
+					}
+					display:block;
+					float:left;
+					height:30px;
+					padding-left:12px;
+					padding-right:12px;
+					&+button{
+						margin-left:5px;
+					}
+				}
+			}
+			
+		}
+		.condition__btn--form{
+			text-align:center;
+			padding:10px 0 0;
+			button{
+				font-size:13px;
+				color:#fff;
+				height:35px;
+				width:87px;
+			}
+			.btn_form--submit{
+				background-color:#2a3a4a;
+			}
+			.btn_form--reset{
+				background-color:#cacaca;
+			}
+		}
+}
+
+.search_list{
+	.wrap_cont{
+		&+.wrap_cont{
+			margin-top:15px;
+		}
+		.addr_view{
+			span{
+				display:block;
+				padding-left:25px;
+				position:relative;
+				&.addr_1{
+					color:#666;
+					font-size:13px;
+					i{
+						@include icon_el(0,0,16px,16px,"bg_addr1.png","true");
+						font-style:normal;
+						font-family:'HDharmonyB';
+						text-indent:0;
+						font-size:10px;
+						color:#666;
+						text-align:center;
+						line-height:16px;
+					}
+				}
+				&.addr_2{
+					color:#999;
+					font-size:13px;
+					margin-top:5px;
+					&.active{
+						button{
+							background-position:0 -16px;
+						}
+					}
+					button{
+						content:"";
+						@include icon_el(0,0,16px,16px,"bg_addr2.png" ,"true");
+					}
+				}
+			}
+		}
+		.btn_wrap{
+			margin-top:10px;
+			padding-left:25px;
+			&:after{
+				@include clear();
+			}
+			.btn_double{
+				float:left;	
+				display:block;
+				width:100px;
+				border:1px solid #ddd;
+				border-radius:15px;
+				overflow:hidden;
+				margin-right:5px;
+				button{
+					float:left;
+					width:50%;
+					display:block;
+					color:#666;
+					text-align:center;
+					font-size:13px;
+					height:22px;
+					line-height:22px;
+					&.btn_go{}
+					&.btn_arrive{
+						background:url(../../images/blit_search_btn.png) no-repeat 0 50%;
+					}
+					&:hover{
+						background-color:#f2f3f4;
+					}
+				}
+			}
+			.tag_name{
+				float:left;
+				display:inline-block;
+				background-color:#98a9ba;
+				color:#fff;
+				border-radius:15px;
+				padding:0 12px;
+				height:24px;
+				line-height:24px;
+				font-size:13px;
+			}
+		}
+	}
+}
+
+
+#paging{
+	padding:10px 0 0;
+	margin:20px 0 0;
+	border-top:1px solid #ddd;
+	text-align:center;
+	ul{
+		display:inline-block;
+		li{
+			&+li{margin-left:7px;}
+			float:left;
+			.paging_prev,
+			.paging_next{
+				background-repeat:no-repeat;
+				background-position:50% 50%;
+				text-indent:-9999em;
+				padding:4px;
+			}
+			.paging_prev{
+				background-image:url(../../images/btn_paging_prev.png);
+			}
+			.paging_next{
+				background-image:url(../../images/btn_paging_next.png);
+			}
+			strong,
+			a{
+				display:block;
+				padding:4px;
+				font-size:13px;
+			}
+			a{
+				color:#999;
+
+			}
+			strong{
+				font-weight:400;
+				color:#2f5691;
+				text-decoration:underline;
+			}
+
+		}
+	}
+}
+
+@media(max-height:500px){
+	.search_wrap{
+		height:260px;
+	}
+	.wrapper{
+		height:500px;
+		overflow-y:auto;
+	}
+	#search_panel{
+		position:absolute;
+
+	}
+}

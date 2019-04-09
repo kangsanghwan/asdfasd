@@ -1,0 +1,20 @@
+/* var */
+/* var */
+/* login wrap */
+#login_wrap { min-height: 100%; text-align: center; padding-top: 200px; background: #ececed; font-weight: 600; }
+#login_wrap #brand_logo { padding-bottom: 60px; }
+#login_wrap .login_comment { padding: 35px 0; margin-bottom: 40px; font-size: 14px; background: #dddee0; color: #535353; }
+#login_wrap .login_comment strong { font-size: 18px; color: #000; }
+#login_wrap .login_comment .brand_color01 { color: #2397bc; font-size: 18px; font-family: 'HDharmonyM'; }
+#login_wrap .login_comment .comment_ft { color: #000; }
+#login_wrap #login_form { width: 370px; margin: 0 auto; }
+#login_wrap #login_form form { margin-bottom: 25px; }
+#login_wrap #login_form form input[type="text"], #login_wrap #login_form form input[type="password"] { display: block; width: 100%; padding: 15px 17px; border: 1px solid #fff; border-radius: 5px; font-size: 16px; color: #b9bac2; }
+#login_wrap #login_form form input[type="text"] { margin-bottom: 10px; background: #f7f7f8 url(../../images/id_bg.gif) no-repeat 95% 15px; }
+#login_wrap #login_form form input[type="password"] { margin-bottom: 15px; background: #f7f7f8 url(../../images/pw_bg.gif) no-repeat 95% 15px; }
+#login_wrap #login_form form .id_check { display: block; text-align: left; font-size: 12px; color: #7d7d7d; }
+#login_wrap #login_form form .id_check input[type="checkbox"] { margin-right: 8px; background: #f7f7f8; width: 18px; height: 18px; border: 1px solid #fff; }
+#login_wrap #login_form form .id_check span { display: inline-block; vertical-align: middle; }
+#login_wrap #login_form #btn_wrap button { display: block; width: 100%; padding: 25px 0; background: #0277bd; border-radius: 5px; color: #fff; font-size: 16px; line-height: 1; }
+
+/* login wrap */

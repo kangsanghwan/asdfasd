@@ -1,0 +1,235 @@
+@charset "utf-8";
+
+/* right_gnb */
+
+#map_control{
+	z-index: 30;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+
+	#map_properties{
+		width: 46px;
+		.com_map_tool{
+			>li{
+				position: relative;
+				a{
+					position:relative;
+					display: block;
+					height: 46px;
+					background: #fff;
+					font-size: 9px;
+					text-align: center;
+					border: 1px solid #d3d3d3;
+					margin-top: -01px;
+					padding-top: 28px;
+					&:after{
+						position: absolute;
+						top: 0;
+						left: 50%;
+						margin-left:-15px;
+						display: block;
+						content:'';
+						width: 30px;
+						height: 30px;
+						background-image: url(../../images/right_icon.png) ;
+						background-repeat: no-repeat;
+					}
+					&.tool_depth01{
+						&:before{
+							position: absolute;
+							left: 1px;
+							bottom: 1px;
+							content:'';
+							display: block;
+							width: 0px;height:0px;
+							border-right:4px solid transparent;border-bottom:4px solid #b1b1b1; 
+						}
+					}
+				}
+			}
+			.tool_depth02{
+				z-index: 10;
+				display: none;
+				position: absolute;
+				top: 0;
+				right: 0;
+				border: 1px solid #595959;
+				padding: 1px;
+				li{
+					float: left;
+					border-left: 1px solid #e6e6e6;
+					&:first-child{
+						border-left: none;
+					}
+					&:after{
+						content:'';
+						display: block;
+						clear: both;
+					}
+					a{
+						width: 46px;
+						height: 44px;
+						margin: -01px ;
+						border-top: none;
+						border-bottom: none;
+						&:hover{
+							background:#f0f0f0;
+						}
+					}
+				}
+			}
+		}
+
+		@mixin ir($left : 0, $top : 0){
+			background-position: $left*30 $top*30;
+		}
+
+		#first_map_tool{
+			margin-bottom: 18px;
+			li{
+				&.bg_mapico{
+					>a{
+						&:after{
+							background-position: 0px -150px;
+						}
+					}
+					.tool_depth02{
+						width: 273px;
+						@for $i from 0 to 6{
+							$val : 1;
+							li:nth-child(#{$val+$i}){
+								a{
+									&:after{background-position: 0 -#{$i*30}px ;}
+								}
+							}
+						}
+					}
+				}
+				&.load_mapico{
+					>a{
+						&:after{
+							background-position: -30px 0px;
+						}
+					}
+					.tool_depth02{
+						width: 138px;
+						li{
+							&:first-child{
+								a{
+									&:after{
+										background-position: 0px -60px;
+									}
+								}
+							}
+						}
+						li{
+							&:nth-child(2){
+								a{
+									&:after{
+										background-position: 0px -90px;
+									}
+								}
+							}
+						}
+						li{
+							&:nth-child(3){
+								a{
+									&:after{
+										background-position: -30px 0px;
+									}
+								}
+							}
+						}
+					}
+				}
+				&.additional_mapico{
+					a{
+						&:after{
+							background-position: -60px -90px;
+						}
+					}
+					.tool_depth02{
+						width: 183px;
+						@for $i from 0 to 7{
+							$val : 1;
+							li:nth-child(#{$val+$i}){
+								a{
+									&:after{background-position: -60px -#{$i*30}px ;}
+								}
+							}
+						}
+					}
+				}
+				&.division_mapico{
+					a{
+						&:after{
+							background-position: -90px 0px;
+						}
+					}
+				}
+			}
+		}
+
+		#second_map_tool{
+			li{
+				&.zoom_pluse-mapico{
+					a{
+						text-indent: 9999px;
+						overflow: hidden;
+						&:after{
+							top:8px;
+							background-position: -120px 0px;
+						}
+					}
+				}
+				&.zoom_minus-mapico{
+					a{
+						text-indent: 9999px;
+						overflow: hidden;
+						&:after{
+							top:8px;
+							background-position: -120px -30px;
+						}
+					} 
+				}
+				&.length_mapico{
+					>a{
+						&:after{
+							background-position: -150px -90px;
+						}
+					}
+					.tool_depth02{
+						width: 183px;
+						@for $i from 0 to 5{
+							$val : 1;
+							li:nth-child(#{$val+$i}){
+								a{
+									&:after{background-position: -150px -#{$i*30}px}
+								}
+							}
+							li:nth-child(1) a{color:#b1b1b1;}
+						}
+					}
+				}
+			
+				&.save_mapico{
+					a{
+						&:after{
+							background-position: -120px -60px;
+						}
+					}
+				}
+				&.set_mapico{
+					a{
+						&:after{
+							background-position: -120px -90px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* right_gnb */
